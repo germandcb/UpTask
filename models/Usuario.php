@@ -6,13 +6,13 @@ class usuario extends ActiveRecord {
     protected static $tabla = 'usuario';
     protected static $columnasDB = ['id', 'nombre', 'email', 'password', 'token', 'confirmado'];
 
-    protected $id;
-    protected $nombre;
-    protected $email;
-    protected $password;
-    protected $password2;
-    protected $token;
-    protected $confirmado;
+    public $id;
+    public $nombre;
+    public $email;
+    public $password;
+    public $password2;
+    public $token;
+    public $confirmado;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
