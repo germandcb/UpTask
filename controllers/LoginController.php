@@ -84,19 +84,24 @@ class LoginController {
 
                 if($usuario && $usuario->confirmado) {
                     // Generar un nuevo token
+                    $usuario->crearToken();
+                    unset($usuario->password2);
 
                     // Actualiar el usuario
+                    $usuario->guardar();
 
                     // Enviar email
 
                     // Imprimir la alerta
+                    Usuario::setAlerta('exito', 'Hemos enviado instrucciones a tu email');
                 } else {
                     Usuario::setAlerta('error', 'El Usuario no existe o no esta confirmado');
-                    $alertas = Usuario::getAlertas();
                 }
             }
         }
 
+        $alertas = Usuario::getAlertas();
+        
         // Renderizar vista
         $router->render('auth/olvide', [
             'titulo' => 'Olvide mi password',
