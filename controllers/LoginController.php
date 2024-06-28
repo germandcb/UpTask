@@ -123,11 +123,19 @@ class LoginController {
 
         if (empty($usuario)) {
             Usuario::setAlerta('error', 'Token no válido');
-            $mostrat = false;
+            $mostrar = false;
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Añadir nuevo Usuario
+            $usuario->sincronizar($_POST);
+            
+            // Validar el password
+            $alertas = $usuario->validarPassword();
 
+            if (empty($alertas)) {
+                // Hashear el nuevo password
+            }
         }
 
         $alertas = Usuario::getAlertas();
