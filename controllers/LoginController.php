@@ -113,13 +113,29 @@ class LoginController {
 
     public static function reestablecer(Router $router) {
 
+        $token = s($_GET['token']);
+        $mostrar = true;
+
+        if (!$token) header('Location: /');
+
+        // Identificar el usuari con este token
+        $usuario = Usuario::where('token', $token); 
+
+        if (empty($usuario)) {
+            Usuario::setAlerta('error', 'Token no válido');
+            $mostrat = false;
+        }
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         }
 
+        $alertas = Usuario::getAlertas();
         // Renderizar vista
         $router->render('auth/reestablecer', [
-            'titulo' => 'Reestablecer Password'
+            'titulo' => 'Reestablecer Password',
+            'alertas' => $alertas,
+            'mostrar' => $mostrar
         ]);
     }
 
