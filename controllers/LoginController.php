@@ -23,6 +23,19 @@ class LoginController {
                     Usuario::setAlerta('error', 'El Usuario no Existe o no esta confirmado');
                 } else {
                     // El usuario existe
+                    if ( password_verify($_POST['password'], $usuario->password)) {
+                        // Iniciar la sesión
+                        session_start();
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
+
+                        // Redireccionar
+                        header('Location: /proyectos');
+                    } else {
+                        Usuario::setAlerta('error', 'Password Incorrecto');
+                    }
                 }
             }
         }
