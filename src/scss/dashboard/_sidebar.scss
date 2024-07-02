@@ -24,7 +24,8 @@
             font-size: 1.2rem;
             text-transform: uppercase;
 
-            &:hover {
+            &:hover,
+            &.activo {
                 background-color: darken(v.$indigo , 20%);
                 border-radius: .5ren;
             }
