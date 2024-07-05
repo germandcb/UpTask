@@ -7,9 +7,14 @@ use Model\Proyecto;
 
 class DashboardController {
     public static function index (Router $router) {
+        
         session_start();
-
         isAuth();
+
+        $id = $_SESSION['id'];
+
+        $proyectos = Proyecto::belongsTo('propietarioId', $id);
+        debuguear($proyectos);
 
         $alertas = [];
 
