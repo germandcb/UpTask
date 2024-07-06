@@ -14,12 +14,12 @@ class DashboardController {
         $id = $_SESSION['id'];
 
         $proyectos = Proyecto::belongsTo('propietarioId', $id);
-        debuguear($proyectos);
-
+        
         $alertas = [];
 
         $router->render('dashboard/index', [
-            'titulo' => 'Proyectos', 
+            'titulo' => 'Proyectos',
+            'proyectos' => $proyectos, 
             'alertas' => $alertas
         ]);
     }
