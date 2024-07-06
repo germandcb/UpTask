@@ -14,13 +14,10 @@ class DashboardController {
         $id = $_SESSION['id'];
 
         $proyectos = Proyecto::belongsTo('propietarioId', $id);
-        
-        $alertas = [];
 
         $router->render('dashboard/index', [
             'titulo' => 'Proyectos',
             'proyectos' => $proyectos, 
-            'alertas' => $alertas
         ]);
     }
 
