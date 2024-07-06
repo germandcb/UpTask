@@ -21,7 +21,7 @@
                 <div class="opciones">
                     <input 
                         type="submit"
-                        calss="submit-nueva-tarea"
+                        class="submit-nueva-tarea"
                         value="Añadir Tarea"
                     />
                     <button type="button" class="cerrar-modal">Cancelar</button>
