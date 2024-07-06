@@ -50,7 +50,7 @@
             }
         });
 
-        document.querySelector('body').appendChild(modal);
+        document.querySelector('.dashboard').appendChild(modal);
     }
 
     function submitFormularioNuevaTarea() {
@@ -58,8 +58,38 @@
 
         if (tarea === '') {
             // Mostrar una alerta de error
-            
+            mostrarAlerta('El Nombre de la tarea es obligatorio', 'error', document.querySelector('.formulario legend'));
+
             return;
         }
+
+        agregarTarea(tarea);
     }
+
+    // Muestra un mensaje en la interfaz
+    function mostrarAlerta(mensaje, tipo, referencia) {
+        // Previene la creación de multiples alertas
+        const alertaPrevia =  document.querySelector('.alerta');
+        if (alertaPrevia) {
+            alertaPrevia.remove();
+        }
+
+        const alerta = document.createElement('DIV');
+        alerta.classList.add('alerta', tipo);
+        alerta.textContent = mensaje;
+
+        // Inserta la alerta antes del legend
+        referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+        // Eliminar la alerta después de 5 segundos
+        setTimeout(() => {
+            alerta.remove();
+        }, 5000);
+    }
+
+    // Cosultar el Servidor para añadir una nueva tarea al proyecto actual
+    function agregarTarea(tarea) {
+
+    }
+
 })();
