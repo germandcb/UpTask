@@ -28,6 +28,11 @@
                 </div>
             </form> 
         `;
+
+        setTimeout(() => {
+            const formulario = document.querySelector('.formulario');
+            formulario.classList.add('animar');
+        }, 2000);
         document.querySelector('body').appendChild(modal);
     }
 })();
