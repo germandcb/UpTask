@@ -10,7 +10,7 @@ class Tarea extends ActiveRecord {
     public $id;
     public $nombre;
     public $estado;
-    public $poryectoId;
+    public $proyectoId;
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
