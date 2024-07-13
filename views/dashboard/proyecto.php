@@ -9,7 +9,7 @@
             >&#43; Nueva Tarea</button>
         </div>
 
-        <div class="filtros" class="filtros">
+        <div class="filtros" id="filtros">
             <div class="filtros-inputs">
                 <h2>Filtros:</h2>
                 <div class="campo">
@@ -39,7 +39,7 @@
                         type="radio"
                         id="pendientes"
                         name="filtro"
-                        value="1"
+                        value="0"
                     />
                 </div>
             </div>
