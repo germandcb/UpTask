@@ -10,7 +10,7 @@
         </div>
 
         <div class="filtros" class="filtros">
-            <div class="filtros-">
+            <div class="filtros-inputs">
                 <h2>Filtros:</h2>
                 <div class="campo">
                     <label for="todas">Todos</label>
