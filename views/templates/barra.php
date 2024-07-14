@@ -2,7 +2,7 @@
     <h1>Up Task</h1>
 
     <div class="menu">
-        <img src="build/img/menu.svg" alt="Imagen Menu">
+        <img id="mobile-menu" src="build/img/menu.svg" alt="Imagen Menu">
     </div>
 </div>
 <div class="barra">
