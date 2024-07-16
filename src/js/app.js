@@ -18,3 +18,11 @@ if(cerrarMenu) {
         }, 500)
     });
 }
+
+// Elimina la clase de mostrar, en un tamaño de table y mayores
+window.addEventListener('resize', function() {
+    const anchoPantalla = document.body.clientWidth;
+    if(anchoPantalla >= 768) {
+        sidebar.classList.remove('mostrar');
+    }
+});
