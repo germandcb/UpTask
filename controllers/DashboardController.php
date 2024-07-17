@@ -85,10 +85,15 @@ class DashboardController {
 
         $usuario = Usuario::find($_SESSION['id']);
 
-        // debuguear($usuario);
-
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+            $usuario->sincronizar($_POST);
+
+            $alertas = $usuario->validarPerfil();
+
+            if(empty($alertas)) {
+                
+            }
         }
 
         $router->render('dashboard/perfil', [
