@@ -2,12 +2,29 @@
 @use 'base/variables' as v;
 
 @media (prefers-color-scheme: dark) {
-    $girsOscuto: #2c2c3b;
+    $grisOscuro: #2c2c3b;
     body {
-        background-color: $girsOscuto;
+        background-color: $grisOscuro;
     }
 
-    .tagline {
+    .tagline,
+    .formulario label,
+    .login .acciones a,
+    .crear .acciones a,
+    .olvide .acciones a {
         color: v.$blanco;
+    }
+
+    .descripcion-pagina,
+    .formulario .campo input {
+        color: v.$grisClaro;
+    }
+
+    .formulario .campo input {
+        background-color: lighten( $grisOscuro, 15% );
+    }
+
+    .alerta.error {
+        background-color: v.$blanco;
     }
 }
