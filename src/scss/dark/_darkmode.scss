@@ -1,0 +1,13 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+@media (prefers-color-scheme: dark) {
+    $girsOscuto: #2c2c3b;
+    body {
+        background-color: $girsOscuto;
+    }
+
+    .tagline {
+        color: v.$blanco;
+    }
+}
