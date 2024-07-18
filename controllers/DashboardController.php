@@ -134,7 +134,14 @@ class DashboardController {
             $alertas = $usuario->nuevoPassword();
 
             if(empty($alertas)) {
-                debuguear($usuario);
+                $resultado = $usuario->comprobarPassword();
+
+                if($resultado) {
+                    // Asignar el nuevo password
+                } else {
+                    Usuario::setAlerta('error', 'Password Incorrecto');
+                    $alertas = $usuario->getAlertas();
+                }
             }
         }
 

@@ -29,7 +29,7 @@ class usuario extends ActiveRecord {
     }
 
     // Validar el login de Usuario 
-    public function validarLogin() {
+    public function validarLogin() : array {
         if (!$this->password) {
             self::$alertas['error'][] = 'El Password no puede ir vacio';
         }
@@ -42,7 +42,7 @@ class usuario extends ActiveRecord {
         return self::$alertas;
     }
 
-    public function validarNuevaCuenta() {
+    public function validarNuevaCuenta() : array {
         if(!$this->nombre) {
             self::$alertas['error'][] = 'El Nombre del Usuario es Obligatori';
         }
@@ -63,7 +63,7 @@ class usuario extends ActiveRecord {
     }
 
     // Validar password
-    public function validarPassword() {
+    public function validarPassword() : array {
         if (!$this->password) {
             self::$alertas['error'][] = 'El Password no puede ir vacio';
         }
@@ -75,7 +75,7 @@ class usuario extends ActiveRecord {
     }
 
     // Valida un Email
-    public function validarEmail() {
+    public function validarEmail() : array {
         if(!$this->email) {
             self::$alertas['error'][] = 'El Email es Obligatorio';
         }
@@ -87,7 +87,7 @@ class usuario extends ActiveRecord {
         return self::$alertas;
     }
 
-    public function validarPerfil() {
+    public function validarPerfil() : array {
         if(!$this->nombre) {
             self::$alertas['error'][] = 'El Nombre es Obligatorio';
         }
@@ -98,7 +98,7 @@ class usuario extends ActiveRecord {
         return self::$alertas;
     }
 
-    public function nuevoPassword() {
+    public function nuevoPassword() : array {
         if(!$this->password_actual) {
             self::$alertas['error'][] = 'El Password Actual no puede ir vacio';
         }
@@ -112,13 +112,18 @@ class usuario extends ActiveRecord {
         return self::$alertas;
     }
 
+    // Comprobar el password
+    public function comprobarPassword() : bool {
+        return password_verify($this->password_actual, $this->password);
+    }
+
     // Hashea el password
-    public function hashPassword() {
+    public function hashPassword() : void {
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
 
     // Generar un token
-    public function crearToken() {
+    public function crearToken() : void {
         $this->token = uniqid();
     }
 
